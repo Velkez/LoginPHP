@@ -6,8 +6,7 @@
         exit(); // Finaliza la ejecución del script 
     } 
     
-    $usr = $_SESSION['usuario']; // Guarda el nombre del usuario en la variable 
-    $usr 
+    $usr = $_SESSION['usuario']; // Guarda el nombre del usuario en la variable $usr 
 ?>
 
 <!DOCTYPE html> 
@@ -34,20 +33,20 @@
         <tr> 
             <th>Usuario</th> <!-- Encabezado de la columna --> 
             <th>Contraseña</th> <!-- Encabezado de la columna --> 
-            <th>Acciones</th>
+            <th>Acciones</th> <!-- Encabezado de la columna --> 
         </tr>
 
         <?php     
-        $sql = "select * from usuarios"; // Consulta para obtener todos los usuarios de la base de datos 
-        $result = mysqli_query($conexion, $sql); // Ejecuta la consulta y guarda el resultado en $result     
-        while ($mostrar = mysqli_fetch_array($result)) { // Itera sobre cada fila del resultado de la consulta 
+            $sql = "select * from usuarios"; // Consulta para obtener todos los usuarios de la base de datos 
+            $result = mysqli_query($conexion, $sql); // Ejecuta la consulta y guarda el resultado en $result     
+            while ($mostrar = mysqli_fetch_array($result)) { // Itera sobre cada fila del resultado de la consulta 
         ?>  
-            <tr> 
-                <td><?php echo $mostrar['usuario'] ?></td> <!-- Muestra el usuario --> 
-                <td><?php echo $mostrar['password'] ?></td> <!-- Muestra la contraseña --> 
-                <td><a href="editar.php?id=<?php echo $mostrar['idusuario'] ?>">Editar</a> 
-                <td><a href="del.php?id=<?php echo $mostrar['idusuario'] ?>">Eliminar</a></td>
-            </tr>
+        <tr> 
+            <td><?php echo $mostrar['usuario'] ?></td> <!-- Muestra el usuario --> 
+            <td><?php echo $mostrar['password'] ?></td> <!-- Muestra la contraseña --> 
+            <td><a href="editar.php?id=<?php echo $mostrar['idusuario'] ?>">Editar</a> 
+            <td><a href="del.php?id=<?php echo $mostrar['idusuario'] ?>">Eliminar</a></td>
+        </tr>
         <?php 
             } 
         ?> 
