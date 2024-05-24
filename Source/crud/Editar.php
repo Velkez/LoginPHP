@@ -1,10 +1,11 @@
-<?php include_once('./logic/conexion.php'); //conexion a la base de datos 
+<?php 
+include_once('../logic/conexion.php'); //conexion a la base de datos 
 if (isset($_GET['id'])) { //obtenemos el id del usuario a editar 
     $id = $_GET['id']; //obtenemos el id del usuario a editar  
     // Obtener los detalles del usuario de la base de datos 
 
     $sql = "SELECT * FROM usuarios WHERE idusuario = '$id'"; //query para obtener los datos del usuario 
-    $result = mysqli_query($conexion, $sql); //ejecutamos el query 
+    $result = mysqli_query(conectar(), $sql); //ejecutamos el query 
     if (mysqli_num_rows($result) > 0) {  // Si el número de filas es mayor a 0 significa que ya existe un usuario con ese nombre 
         $usuario = mysqli_fetch_assoc($result); //obtenemos los datos del usuario 
     } else { // Si no existe el usuario         
